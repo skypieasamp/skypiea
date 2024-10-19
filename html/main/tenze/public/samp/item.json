@@ -1,0 +1,67 @@
+[
+    {
+        "name": "Buffalo",
+        "id": "402",
+        "credits": 50
+    },
+    {
+        "name": "Infernus",
+        "id": "411",
+        "credits": 200
+    },
+    {
+        "name": "Banshee",
+        "id": "429",
+        "credits": 150 
+    },
+    {
+        "name": "thurshimo",
+        "id": "451",
+        "credits": 200 
+    },
+    {
+        "name": "Maverick",
+        "id": "487",
+        "credits": 200
+    },
+    {
+        "name": "Nrg",
+        "id": "522",
+        "credits": 150 
+    },
+    {
+        "name": "Sultan",
+        "id": "560",
+        "credits": 150 
+    },
+    {
+        "name": "BoomBox",
+        "id": "2102",
+        "credits": 250
+    },
+    {
+        "name": "Small Backpack",
+        "id": "1310",
+        "credits": 150
+    },
+    {
+        "name": "Medium Backpack",
+        "id": "19559",
+        "credits": 200
+    },
+    {
+        "name": "Large Backpack",
+        "id": "3026",
+        "credits": 250
+    },
+    {
+        "name": "Small House",
+        "id": "3556",
+        "credits": 200
+    },
+    {
+        "name": "Medium House",
+        "id": "9273",
+        "credits": 250
+    }
+]

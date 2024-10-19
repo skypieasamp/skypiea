@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/pstyle.css">
+    <script src="../scripts/pscript.js" defer></script>
+    <title>Skypiea Premiums</title>
+</head>
+
+<body>
+    <!-- Popup for agreeing to terms and conditions -->
+    <div class="popup" id="terms-popup">
+        <h2>Terms and Conditions</h2>
+        <p>
+            <!-- Terms and conditions content here -->
+            - Age Restriction: Only individuals aged 18 and above can purchase the premium plan.<br>
+            - Parental Supervision: Users under 18 must be supervised by a parent or guardian at all times.<br>
+            - Real Money Trading: Trading real money for in-game items or benefits is strictly prohibited.<br>
+            - Donation Regulations: All donated items are non-refundable.<br>
+            - Account Exchange Prohibition: Swapping or exchanging accounts is strictly forbidden.<br>
+            - Fair Gaming Standards: Pay-to-play systems are not endorsed. Maintaining fair play is the responsibility of each player.<br>
+            - Guidelines for Gang Teams: Premium memberships obtained by a gang cannot be transferred to another gang. No refunds will be provided for any private purchases if a gang is disbanded.<br>
+            <br>
+            - We Don't Promote <b>Pay-To-Play System</b>. Each And Every Donation Is Used For Server Hosting And Updating.<br>
+        </p>
+        <button onclick="closeTermsPopup()">Agree to Terms and Conditions</button>
+    </div>
+
+    <!-- Top section with Payment and Go Back button -->
+    <div class="header">
+         <img src="../images/logo.png" alt="Logo" width="150px" height="150px">
+        <button class="button" onclick="window.location.href='../index.php'">Go Back</button>
+    </div>
+    
+    <!-- Display credits, cash, and added items -->
+    <div class="creditbox" id="creditbox">
+        <h2>Credits : <span id="Credits">0</span> </h2>
+        <h2>Cash : <span id="cash">0</span> </h2>
+        <h3>Items added:</h3>
+        <ol id="items"></ol>
+        <button class="button" onclick="showqrcode()">Purchase Premium</button> &nbsp;
+        <button class="button" onclick="clearList()">Clear List</button>
+    </div>
+    
+    <!-- Container to load items dynamically -->
+    <div id="items-container"></div>
+    
+</body>
+
+</html>
+
