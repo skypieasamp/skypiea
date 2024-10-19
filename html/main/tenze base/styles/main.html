@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../styles/style.css">
+    <script src="../scripts/script.js"></script>
+    <title>Tenze Virtual Roleplay</title>
+</head>
+<body>
+    <noscript>Javascript not loading sorry for ths inconvenince. Probabily its your browser issue try reloading,if you want Report this issue to discord id zyndor. </noscript>
+    <div class="overlay" id="overlay" onclick="closePopup()"></div>
+    <header>
+        <div class="logo">
+            <img src="../images/logo.png" alt="Logo" width="150px" height="150px">
+        </div>
+        <div class="fixed-buttons">
+            <button onclick="window.location.href='https://tenze.gitbook.io/rule-book'">Rules</button>
+            <button onclick="window.location.href='premium.html'">Premium Plans</button>
+            <button onclick="window.location.href='https://discord.gg/fgZBCJaxAW'">Announcement</button>
+            <button  id="login" onclick="redirectToDiscord()" style="display:block;">Log In</button>
+            <img id="user-avatar" class="user-avatar" alt="User Avatar" width="50px" height="50px" style="display: none; border-radius: 50%;">
+            <button id="user-info" ></button>
+        </div>    
+    </header>
+    
+   <main>
+    <div class="main">
+    <center><div class="maintext">
+    <h1>TENZE VIRTUAL<br>ROLEPLAY</h1><br>
+    <h3>Most featuristic server in samp communtiy</h3>
+    </div></center>
+    <center><button onclick="startplay()">start playing</button></center>
+    </div>
+    </main>
+
+<div class="gallery" id="gallery">
+    <div class="gallery-container"><img src='../images/gallery/chase1.jpg' alt="Chase 1"><div onclick="opengallery('../images/gallery/chase1.jpg')" class="gallery-overlay"></div></div>
+    <div class="gallery-container"> <img src='../images/gallery/chase2.jpg' alt="Chase 2"><div onclick="opengallery('../images/gallery/chase2.jpg')" class="gallery-overlay"></div></div>
+    <div class="gallery-container"> <img src='../images/gallery/gang1.jpg' alt="Gang 1"><div onclick="opengallery('../images/gallery/gang1.jpg')" class="gallery-overlay"></div></div>
+    <div class="gallery-container"><img src='../images/gallery/gang2.jpg' alt="Gang 2"><div onclick="opengallery('../images/gallery/gang2.jpg')" class="gallery-overlay"></div></div>
+    <div class="gallery-container"><img src='../images/gallery/heli1.jpg' alt="Heli 1"><div onclick="opengallery('../images/gallery/heli1.jpg')" class="gallery-overlay"></div></div>
+    <div class="gallery-container"><img src='../images/gallery/pd1.jpg' alt="PD 1"><div onclick="opengallery('../images/gallery/pd1.jpg')" class="gallery-overlay"></div></div>
+    <div class="gallery-container"><img src='../images/gallery/pd2.png' alt="PD 2"><div onclick="opengallery('../images/gallery/pd2.png')" class="gallery-overlay"></div></div>
+    <div class="gallery-container"><img src='../images/gallery/pd3.jpg' alt="PD 3"><div onclick="opengallery('../images/gallery/pd3.jpg')" class="gallery-overlay"></div></div>
+    <div class="gallery-container"><img src='../images/gallery/robbery1.jpg' alt="Robbery 1"><div onclick="opengallery('../images/gallery/robbery1.jpg')" class="gallery-overlay"></div></div>
+    <div class="gallery-container"><img src='../images/gallery/rp1.jpg' alt="RP 1"><div onclick="opengallery('../images/gallery/rp1.jpg')" class="gallery-overlay"></div></div>
+    <div class="gallery-container"><img src='../images/gallery/rp2.png' alt="RP 1"><div onclick="opengallery('../images/gallery/rp2.png')" class="gallery-overlay"></div></div>
+</div>
+
+<div class="gallerypopup" id="popup">
+    <button class="close-btn" onclick="closePopup()">X</button>
+    <img src="" alt="Popup Image" id="popupImage">
+</div>
+<div class="startplay">
+    <div class="how">
+        How to join <br>TVRP
+        <div class="joincontainer">
+            <div class="joinmainbox">
+                <div class="step">step 1</div>
+                Take whitelist<br><br>
+                <button class="mainbutton2" onclick="whitelist()"><img src="../images/icon/ticket-solid.png" alt="ticket-solid" width="20px" height="20px">&nbsp;&nbsp;whitelist</button>
+            </div>
+            <div class="joinmainbox">
+                <div class="step">step 2</div>
+                Download Files<br><br>
+                <button class="mainbutton2" onclick="download()"><img src="../images/icon/download-solid.png" alt="download-solid" width="20px" height="20px">&nbsp;&nbsp;Download</button>
+            </div>
+            <div class="joinmainbox">
+                <div class="step">step 3</div>
+                Register name<br><br>
+                <button class="mainbutton2" onclick="register()"><img src="../images/icon/address-card-regular.png" alt="address-card-regular" width="20px" height="20px">&nbsp;&nbsp;Register</button>
+            </div>
+            <div class="joinmainbox step4">
+            <div class="step">step 4</div>
+                Start Your Tenze Virtual Roleplay Journey:<br><br>
+                <button class="mainbutton2" onclick="getip()"><img src="../images/icon/server-solid.png" alt="server-solid" width="20px" height="20px" >&nbsp;&nbsp;Get-IP</button>
+                <button class="mainbutton2" onclick="startplay()"><img src="../images/icon/circle-play-regular.png" alt="play-regular" width="20px" height="20px">&nbsp;&nbsp;startplay</button>
+            </div>
+        </div>
+    </div>
+</div>
+    </div>
+    <div class="notification" id="ipnotification1">
+        <img src="../images/icon/envelope-regular.svg" alt="notification-icon" width="18px" height="18px">&nbsp;&nbsp;IP Copied to clipboard
+    </div>
+        <div class="notification" id="ipnotification2">
+        <img src="../images/icon/envelope-regular.svg" alt="notification-icon" width="18px" height="18px">&nbsp;&nbsp;IP was not coppied to clipboard
+    </div>
+    <div class="popup1" id="whitelist">
+        <div class="whitelist">
+        <h1>Which type of whitelist do you prefer</h1>
+        <button class="mainbutton2" onclick="whitelist1()"><img src="../images/icon/clipboard-regular.png" alt="clipboard-regular" width="20px" height="20px">&nbsp;&nbsp;Form</button>
+        <button class="mainbutton2" onclick="window.location.href='https://discord.com/channels/922447966684450826/1120706518426341539'"><img src="../images/icon/microphone-lines-solid.png" alt="microphone-lines-solid" width="20px" height="20px">&nbsp;&nbsp;Voice</button>
+    </div>
+    </div>
+    <div class="popup1" id="whitelist1">
+       <div class="whitelist-container">
+        <h2>whitelist Form</h2>
+        <form>
+            <!-- What is RP question -->
+            <div class="whitelist-form">
+                <label for="what-is-rp">1. What is RP?</label>
+                <textarea id="what-is-rp" name="what-is-rp" placeholder="Describe what RP means to you..."></textarea>
+            </div>
+
+            <!-- RP Rules question -->
+            <div class="whitelist-form">
+                <label for="rp-rules">2. List some important RP rules:</label>
+                <textarea id="rp-rules" name="rp-rules" placeholder="Mention some key rules in RP..."></textarea>
+            </div>
+
+            <!-- RP Scenarios -->
+            <div class="whitelist-form">
+                <label>3. In the following scenarios, what would you do?</label>
+
+                <label for="scenario-1">Scenario 1: You see another player breaking RP rules. What would you do?</label>
+                <textarea id="scenario-1" name="scenario-1" placeholder="Your answer..."></textarea>
+
+                <label for="scenario-2">Scenario 2: You are in the middle of an RP event and someone starts trolling. How do you respond?</label>
+                <textarea id="scenario-2" name="scenario-2" placeholder="Your answer..."></textarea>
+            </div>
+
+            <!-- Knowledge of RP terminology -->
+            <div class="whitelist-form">
+                <label>4. How well do you know RP terminology?</label>
+                <label><input type="radio" name="rp-terminology" value="well"> Very well</label>
+                <label><input type="radio" name="rp-terminology" value="average"> Average</label>
+                <label><input type="radio" name="rp-terminology" value="beginner"> Beginner</label>
+            </div>
+
+            <!-- Consent to RP Rules -->
+            <div class="whitelist-form">
+                <label>5. Do you agree to follow all RP rules in the server?</label>
+                <label><input type="checkbox" name="rp-consent" value="agree"> I agree</label>
+            </div>
+
+            <!-- Submit Button -->
+            <button type="submit" class="submit-btn">Submit</button>
+        </form>
+    </div>
+    </div>
+    <div class="popup1" id="download">
+        <div class="download">
+            <h1>Which version of the file would you like to download?</h1>
+            <button class="mainbutton2" ><img src="../images/icon/desktop-solid.png" alt="clipboard-regular" width="20px" height="20px">&nbsp;&nbsp;PC</button>
+            <button class="mainbutton2" ><img src="../images/icon/mobile-screen-solid.png" alt="clipboard-regular" width="20px" height="20px">&nbsp;&nbsp;MOBILE</button>
+        </div>
+    </div>
+    <div class="popup1" id="register">
+        <div class="registration">
+            <h2>Register Your Name </h2>
+            <h3>First register your name ingame <br>and put your name here</h3>
+            <form action="post">
+            <input type="text" id="name" placeholder="Format: Firstname_Secondname">
+            <button type="submit" >Submit</button>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,537 @@
+body {
+    font-family: Arial, sans-serif;
+    background-image: url('../images/background1.jpg');
+    height: 100vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: rgb(35, 21, 40);
+    margin: 0;
+    padding: 0;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.notification {
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 10%;
+    right: 0%;
+    height: fit-content;
+    border: none;
+    padding: 10px 30px;
+    width: fit-content;
+    box-shadow: rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px;
+    border-radius: 50px;
+    background: rgb(0, 255, 34);
+    z-index: 100;
+}
+
+header {
+    position: relative;
+    background-color: rgba(250, 84, 250, 0);
+    color: rgb(77, 77, 77);
+    text-align: left;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 75px;
+    padding: 0 20px;
+    z-index: 1;
+}
+
+header img {
+    position: relative;
+    z-index: inherit;
+}
+
+.fixed-buttons {
+    position: relative;
+    right: 50px;
+    top: 5px;
+    display: flex;
+    flex-direction: row;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.headerbuttons {
+    background-color: #00000000;
+    color: #000000;
+    border: 1px;
+    cursor: pointer;
+    font-size: 19px;
+    z-index: inherit;
+    position: relative;
+    padding: -5px -5px;
+    transition: transform 1s ease;
+}
+
+.headerbuttons::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 2px;
+    background-color: #000000;
+    transform: scaleX(0);
+    transform-origin: bottom center;
+    transition: transform 1s ease;
+}
+
+.headerbuttons:hover::after {
+    transform: scaleX(1);
+}
+
+@keyframes hoverAnimation {
+    0% {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.05);
+    }
+
+    100% {
+        transform: scale(1.1);
+    }
+}
+
+.headerbuttons:hover {
+    animation: hoverAnimation 1s ease forwards;
+}
+
+@media screen and (max-width: 768px) {
+    .fixed-buttons {
+        flex-direction: row;
+        flex-wrap: nowrap;
+        right: 10px;
+        top: 20px;
+        gap: 3px;
+    }
+
+    .headerbuttons {
+        font-size: 10px;
+        padding: 8px 15px;
+    }
+}
+
+main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+}
+
+.maintext {
+    color: white;
+    cursor: none;
+}
+
+.maintext h1 {
+    text-shadow: 0 0 44px rgba(0, 0, 0, 0.8);
+    font-size: 72px;
+    line-height: 80%;
+    max-width: 694px;
+    margin: 0 auto 12px;
+}
+
+.maintext h1 span:first-child {
+    font-size: 78px;
+    /* Slightly larger font size for SkyPiea */
+    position: relative;
+    top: -4px;
+    z-index: 2;
+    /* Ensure SkyPiea is "on top" */
+    display: inline-block;
+}
+
+.maintext h1 span:last-child {
+    text-shadow: 0 0 60px rgba(0, 0, 0, 0.9);
+    /* Stronger shadow for ROLEPLAY */
+    font-size: 72px;
+    /* Keep ROLEPLAY slightly smaller */
+    position: relative;
+    z-index: 1;
+    display: inline-block;
+}
+
+.maintext h3 {
+    text-shadow: 0 0 24px rgba(0, 0, 0, 0.8);
+    font-size: 20px;
+    line-height: 100%;
+    letter-spacing: 0.8px;
+}
+
+.mainbutton {
+    cursor: pointer;
+    border: 0px solid rgba(187, 204, 0, 0);
+    font-size: 18px;
+    color: rgb(255, 255, 255);
+    padding: 19px 30px;
+    width: 190px;
+    box-shadow: rgba(0, 0, 0, 0.2) 0px 12px 28px 0px, rgba(0, 0, 0, 0.1) 0px 2px 4px 0px, rgba(255, 255, 255, 0.05) 0px 0px 0px 1px inset;
+    border-radius: 10px;
+    background: #2c2c2c;
+    text-align: center;
+    font-size: 18px;
+    font-weight: 800;
+    letter-spacing: 0.72px;
+    --hover-bgc: rgba(56, 56, 56, 0.842);
+    transition: background 10s, box-shadow 10s, border 10s;
+}
+
+.main button:hover {
+    background: transparent;
+    border: none;
+    box-shadow: none;
+}
+
+.main button:not(:hover) {
+    transition: background 2s, box-shadow 2s, border 2s;
+}
+
+.startplay {
+    width: 100%;
+}
+
+.how {
+    margin: 100px auto;
+    font-size: 90px;
+    font-weight: bold;
+    color: rgb(255, 255, 255);
+    position: relative;
+    width: 75vw;
+}
+
+.step {
+    font-size: 15px;
+    color: rgb(255, 255, 255);
+    padding: 6px 30px;
+    width: 25%;
+    border-radius: 6px;
+    background: rgb(133, 60, 80);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.joincontainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.joinmainbox {
+    background-color: rgb(112, 34, 77);
+    height: fit-content;
+    text-align: center;
+    border-radius: 10px;
+    padding: 30px;
+    font-size: 50px;
+}
+
+.joinmainbox h6 {
+    margin-top: -50px;
+    font-size: small;
+}
+
+.step4 {
+    grid-column: span 2;
+}
+
+@media (max-width: 768px) {
+    .joincontainer {
+        grid-template-columns: 1fr;
+    }
+
+    .step4 {
+        grid-column: auto;
+    }
+}
+
+.mainbutton2 {
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    padding: 14px 30px;
+    transition: 1s;
+    width: 150px;
+    box-shadow: rgb(0, 0, 0) 0px 0px 0px 0px;
+    border-radius: 50px;
+    border: none;
+    background: rgb(226, 216, 230);
+    display: inline-flex;
+    ;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+
+.mainbutton2:hover {
+    color: rgb(255, 255, 255);
+    width: 180px;
+    height: calc(fit-content + 50px);
+    background: rgb(193, 122, 226);
+    border: none;
+}
+
+.popup1 {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    width: fit-content;
+    border-radius: 8px;
+    overflow: hidden;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.download {
+    background-color: #ffffff;
+    width: fit-content;
+    height: fit-content;
+    padding: 100px 50px 100px;
+    border-radius: 15px;
+}
+
+.download button {
+    position: relative;
+    left: 30%;
+}
+
+.registration {
+    background-color: rgb(174, 0, 255);
+    width: fit-content;
+    height: fit-content;
+    border-radius: 10px;
+    padding: 20px 50px;
+}
+
+.registration input[type="text"],
+.registration input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #bd65ed;
+    border-radius: 4px;
+}
+
+.registration button[type="submit"] {
+    background-color: #a10cfe;
+    color: rgb(240, 235, 245);
+    padding: 10px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    font-size: 1rem;
+}
+
+.registration button[type="submit"]:hover {
+    background-color: #640ad3;
+}
+
+.registration input[type="radio"] {
+    cursor: pointer;
+}
+
+.gallery {
+    margin: 100px auto;
+    position: relative;
+    width: 75vw;
+    height: auto;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: space-between;
+    background-color: #00000000;
+}
+
+.gallery-container {
+    position: relative;
+    flex: 1 1 calc(25% - 25px);
+    overflow: hidden;
+    border-radius: 5px;
+    z-index: 100;
+    aspect-ratio: 16/9;
+}
+
+.gallery-container img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease-in-out;
+}
+
+.gallery-container .gallery-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(210, 77, 141, 0.397);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 24px;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    cursor: url(../images/icon/magnifying-glass-solid.png) 0 0, zoom-in;
+    border: none;
+}
+
+.gallery-container:hover .gallery-overlay {
+    opacity: 1;
+}
+
+.gallery-container:hover img {
+    transform: scale(1.1);
+}
+
+.gallerypopup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 1000;
+    width: 90%;
+    max-width: 800px;
+    background-color: white;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.gallerypopup img {
+    width: 100%;
+    height: auto;
+}
+
+.gallerypopup .close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: red;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 999;
+}
+
+.imageoverlay.active,
+.popup.active {
+    display: block;
+}
+
+.tail {
+    position: absolute;
+    width: 100%;
+    color: #ffffff;
+    background-color: #111111;
+    padding: 5vw;
+}
+
+.tailright {
+    position: inherit;
+    right: 25vw;
+    top: 50%;
+}
+
+.links {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 2vw 10vw;
+}
+
+.discord,
+.youtube,
+.instagram {
+    margin: 0 auto;
+    border: 0px none rgba(100, 100, 100, 1);
+    border-radius: 30px;
+    transition: transform 300ms ease-out;
+    width: 20vw;
+    height: 20vw;
+    text-align: center;
+    padding: 15px;
+    color: white;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover effect common for all */
+.discord:hover,
+.youtube:hover,
+.instagram:hover {
+    transform: translate(0px, 0px) scale(1.1, 1.1);
+}
+
+/* Discord specific styling */
+.discord {
+    background-color: rgba(82, 109, 247, 1);
+}
+
+.discord img,
+.youtube img,
+.instagram img {
+    position: inherit;
+    left: 3%;
+    top: 2%;
+    width: 5.21vw;
+    height: 5.21vw;
+}
+
+/* YouTube specific styling */
+.youtube {
+    background-color: rgba(255, 61, 61, 0.945);
+}
+
+/* Instagram specific styling */
+.instagram {
+    background: radial-gradient(circle at 30% 107%, #fdf497 0%, #fdf497 5%, #fd5949 45%, #d6249f 60%, #285AEB 90%);
+}
+
+/* Common styling for headings across all */
+.discord h3,
+.youtube h3,
+.instagram h3 {
+    margin-top: 10px;
+    font-size: 1.8vw;
+    font-family: 'Arial', sans-serif;
+    font-weight: bold;
+}
+
+/* Common styling for paragraphs across all */
+.discord p,
+.youtube p,
+.instagram p {
+    margin-top: 10px;
+    font-size: 0.9vw;
+    font-family: 'Verdana', sans-serif;
+    line-height: 1.4;
+    color: #f0f0f0;
+}
