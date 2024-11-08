@@ -13,13 +13,23 @@ body {
     overflow-x: hidden;
 }
 
+#notification-container {
+    position: fixed;
+    top: 10vw;
+    right: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: end;
+    gap: 10px; 
+    z-index: 1000;
+}
+
+/* Individual notification styles */
 .notification {
-    display: none;
+    display: flex;
     justify-content: center;
     align-items: center;
-    position: fixed;
-    top: 10%;
-    right: 0%;
+    position: relative;
     height: fit-content;
     border: none;
     padding: 10px 30px;
@@ -28,6 +38,9 @@ body {
     border-radius: 50px;
     background: rgb(0, 255, 34);
     z-index: 11;
+    opacity: 0; /* Hidden initially */
+    transform: translateY(20px); /* Initial position off-screen */
+    transition: opacity 0.3s ease, transform 0.3s ease; /* Smooth transitions */
 }
 
 .overlay {
@@ -298,7 +311,7 @@ main {
     left: auto;
 }
 .registration {
-    background-color: rgb(174, 0, 255);
+    background-color:rgb(112, 34, 77);
     width: 75vw;
     height: fit-content;
     border-radius: 10px;
@@ -309,12 +322,12 @@ main {
     width: 100%;
     padding: 10px;
     margin-bottom: 20px;
-    border: 1px solid #bd65ed;
+    border: 1px solid rgb(133, 42, 92);
     border-radius: 4px;
 }
 
 .registration button[type="submit"] {
-    background-color: #a10cfe;
+    background-color: rgb(148, 46, 102);
     color: rgb(240, 235, 245);
     padding: 10px 20px;
     border: none;
@@ -325,7 +338,7 @@ main {
 }
 
 .registration button[type="submit"]:hover {
-    background-color: #640ad3;
+    background-color: rgba(112, 34, 77, 0.582);
 }
 
 .registration input[type="radio"] {

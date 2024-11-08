@@ -1,8 +1,12 @@
-function startplay() {
-    window.location.href = '#how';
+
+
+
+
+function startplaypc() {
+    window.location.href = 'samp://172.232.124.96:5198';
 }
 function ip() {
-    alert('ip');
+    alert('172.232.124.96:5198');
 }
 
 function showgallery() {
@@ -27,7 +31,7 @@ function opengallery(src) {
 function register() {
     if (!getCookie('userid')) {
         closePopup()
-        notification('Login to discord to register', 3000);
+        notification('Login to discord to register', 3000, 'red');
     } else {
         document.getElementById('overlay').style.display = 'flex';
         document.getElementById('register').style.display = 'flex';
@@ -39,6 +43,14 @@ function download() {
     document.getElementById('download').style.display = 'flex';
     document.body.style.overflowY = 'hidden';
     notification('Popup closed', 1000);
+}
+function pcdownload() {
+    window.open("downloadlink", "_blank");
+    closePopup();
+}
+function mobiledownload() {
+    window.open("downloadlink", "_blank");
+    closePopup();
 }
 function closePopup() {
     document.body.style.overflowY = 'scroll';
@@ -73,33 +85,29 @@ function link(link) {
     }
 }
 
-function notification(msg, time) {
+function notification(msg, time, color) {
     const notificationContainer = document.getElementById('notification-container');
-
-    // Create a new notification element
     const noti = document.createElement('div');
     noti.classList.add('notification');
     noti.innerHTML = `
-      <img src="../images/icon/envelope-regular.svg" alt="notification-icon" width="18px" height="18px">
+      <img src="../images/icon/envelope-regular.svg" width="18px" height="18px">
       &nbsp;&nbsp; ${msg}
     `;
-
-    // Add the notification to the container
+    noti.style.backgroundColor = color;
     notificationContainer.appendChild(noti);
-    
-    // Show the notification with animation
+
     setTimeout(() => {
         noti.style.opacity = '1';
         noti.style.transform = 'translateY(0)';
-    }, 100); // Small delay to apply the transition
+    }, 100);
 
-    // Remove notification after specified time
     setTimeout(() => {
-        noti.style.opacity = '0'; // Fade out
-        noti.style.transform = 'translateY(-20px)'; // Move up
+        noti.style.opacity = '0';
+        noti.style.transform = 'translateY(-20px)';
 
         setTimeout(() => {
-            notificationContainer.removeChild(noti); // Remove from DOM after fade-out
-        }, 300); // Delay to allow transition to complete before removing
+            notificationContainer.removeChild(noti);
+        }, 300);
     }, time);
 }
+

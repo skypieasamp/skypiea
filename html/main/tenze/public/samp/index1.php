@@ -1,14 +1,34 @@
 <!DOCTYPE html>
+<?php
+// Function to delete cookies
+function deleteCookies()
+{
+    // Delete all cookies
+    foreach ($_COOKIE as $name => $value) {
+        setcookie($name, '', time() - 3600, '/'); // Change the path if necessary
+    }
+    return "All cookies deleted.";
+}
+
+// Check if the request is made via AJAX
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['action'] === 'deleteCookies') {
+    // Call the function and return the message
+    echo deleteCookies();
+    exit; // Exit to prevent further output
+}
+?>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="../images/logo.ico">
     <link rel="stylesheet" href="../styles/style.css">
     <script src="../scripts/script.js"></script>
-    <script src="../scripts/discordcon.js"></script>
+    <script src="../scripts/discordconv2.js"></script>
     <title>SkyPiea Roleplay</title>
 </head>
+
 <body>
     <noscript>Javascript not loading sorry for ths inconvenince. Probabily
         its your browser issue try reloading,if you want Report this issue
@@ -16,13 +36,13 @@
     <div class="overlay" id="overlay" onclick="closePopup()"></div>
     <header>
         <div class="logo">
-            <img src="../images/logo.png" alt="Logo" width="150px" height="150px">
+            <img src="../images/logo.png" alt="Logo" width="150px" height="150px" loading="lazy">
         </div>
         &nbsp;&nbsp;
         <a class="headerbuttons" href="#how" style="font-size: 30px;">How to start playing SkyPiea?</a>
         <div class="fixed-buttons">
             <button class="headerbuttons" onclick="window.location.href='https://tenze.gitbook.io/rule-book'">Rules</button>
-            <button class="headerbuttons" onclick="window.location.href='premium.html'">Premium Plans</button>
+            <button class="headerbuttons" onclick="window.location.href='premium.php'">Premium Plans</button>
             <button class="headerbuttons" onclick="window.location.href='https://discord.gg/fgZBCJaxAW'">Announcement</button>
 
             <?php
@@ -84,7 +104,7 @@
                         <img src="../images/icon/discord-brands-solid.svg" alt="discord-brands-solid" width="20px"
                             height="20px">&nbsp;&nbsp;join discord
                     </a>
-                    <button class="mainbutton2" onclick="startplay()">
+                    <button class="mainbutton2" onclick="startplaypc()">
                         <img src="../images/icon/circle-play-regular.svg" alt="play-regular" width="20px"
                             height="20px">&nbsp;&nbsp;startplay
                     </button>
@@ -93,14 +113,16 @@
         </div>
     </div>
 
-<div id="notification-container"></div>
+    <div id="notification-container"></div>
 
     <div class="popup1" id="download">
         <div class="download">
             <h1>Which version of the file would you like to download?</h1>
-            <button class="mainbutton2"><img src="../images/icon/clipboard-regular.svg" alt="clipboard-regular"
+            <button class="mainbutton2" onclick="pcdownload()">
+                <img src="../images/icon/clipboard-regular.svg" alt="clipboard-regular"
                     width="20px" height="20px">&nbsp;&nbsp;PC</button>
-            <button class="mainbutton2"><img src="../images/icon/mobile-screen-solid.svg" alt="clipboard-regular"
+            <button class="mainbutton2" onclick="mobiledownload()">
+                <img src="../images/icon/mobile-screen-solid.svg" alt="clipboard-regular"
                     width="20px" height="20px">&nbsp;&nbsp;MOBILE</button>
         </div>
     </div>
@@ -109,7 +131,7 @@
             <h2>Registration</h2>
             <form id="ingamename">
                 Your Character Name : <input type="text" id="name" maxlength="20" placeholder="Format: Firstname_Secondname" required autofocus> <br>
-                Your Character Age : <input type="number" min="18" id="age" placeholder="age" required> <br>
+                Your Character Age : <input type="number" min="13" id="age" placeholder="age" required> <br>
                 Your Character Gender : <input type="radio" id="gender" name="gender" value="male" required> male &nbsp;&nbsp;
                 <input type="radio" id="gender" name="gender" value="female" required>
                 female <br><br>
@@ -119,38 +141,38 @@
         </div>
     </div>
     <div class="gallery" id="gallery">
-        <div class="gallery-container"><img src='../images/gallery/chase1.jpg' alt="Chase 1">
-            <div onclick="opengallery('../images/gallery/chase1.jpg')" class="gallery-overlay"></div>
+        <div class="gallery-container"><img src='../images/gallery/1.png' alt="image  1">
+            <div onclick="opengallery('../images/gallery/1.png')" class="gallery-overlay"></div>
         </div>
-        <div class="gallery-container"> <img src='../images/gallery/chase2.jpg' alt="Chase 2">
-            <div onclick="opengallery('../images/gallery/chase2.jpg')" class="gallery-overlay"></div>
+        <div class="gallery-container"> <img src='../images/gallery/2.png' alt="image  2">
+            <div onclick="opengallery('../images/gallery/2.png')" class="gallery-overlay"></div>
         </div>
-        <div class="gallery-container"> <img src='../images/gallery/gang1.jpg' alt="Gang 1">
-            <div onclick="opengallery('../images/gallery/gang1.jpg')" class="gallery-overlay"></div>
+        <div class="gallery-container"> <img src='../images/gallery/3.png' alt="image 3">
+            <div onclick="opengallery('../images/gallery/3.png')" class="gallery-overlay"></div>
         </div>
-        <div class="gallery-container"><img src='../images/gallery/gang2.jpg' alt="Gang 2">
-            <div onclick="opengallery('../images/gallery/gang2.jpg')" class="gallery-overlay"></div>
+        <div class="gallery-container"><img src='../images/gallery/4.png' alt="image 4">
+            <div onclick="opengallery('../images/gallery/4.png')" class="gallery-overlay"></div>
         </div>
-        <div class="gallery-container"><img src='../images/gallery/heli1.jpg' alt="Heli 1">
-            <div onclick="opengallery('../images/gallery/heli1.jpg')" class="gallery-overlay"></div>
+        <div class="gallery-container"><img src='../images/gallery/5.png' alt="image 5">
+            <div onclick="opengallery('../images/gallery/5.png')" class="gallery-overlay"></div>
         </div>
-        <div class="gallery-container"><img src='../images/gallery/pd1.jpg' alt="PD 1">
-            <div onclick="opengallery('../images/gallery/pd1.jpg')" class="gallery-overlay"></div>
+        <div class="gallery-container"><img src='../images/gallery/6.png' alt="image 6">
+            <div onclick="opengallery('../images/gallery/6.png')" class="gallery-overlay"></div>
         </div>
-        <div class="gallery-container"><img src='../images/gallery/pd2.png' alt="PD 2">
-            <div onclick="opengallery('../images/gallery/pd2.png')" class="gallery-overlay"></div>
+        <div class="gallery-container"><img src='../images/gallery/7.png' alt="image 7">
+            <div onclick="opengallery('../images/gallery/7.png')" class="gallery-overlay"></div>
         </div>
-        <div class="gallery-container"><img src='../images/gallery/pd3.jpg' alt="PD 3">
-            <div onclick="opengallery('../images/gallery/pd3.jpg')" class="gallery-overlay"></div>
+        <div class="gallery-container"><img src='../images/gallery/8.png' alt="image 8">
+            <div onclick="opengallery('../images/gallery/8.png')" class="gallery-overlay"></div>
         </div>
-        <div class="gallery-container"><img src='../images/gallery/robbery1.jpg' alt="Robbery 1">
-            <div onclick="opengallery('../images/gallery/robbery1.jpg')" class="gallery-overlay"></div>
+        <div class="gallery-container"><img src='../images/gallery/9.png' alt="image 9">
+            <div onclick="opengallery('../images/gallery/9.png')" class="gallery-overlay"></div>
         </div>
-        <div class="gallery-container"><img src='../images/gallery/rp1.jpg' alt="RP 1">
-            <div onclick="opengallery('../images/gallery/rp1.jpg')" class="gallery-overlay"></div>
+        <div class="gallery-container"><img src='../images/gallery/10.png' alt="image 10">
+            <div onclick="opengallery('../images/gallery/10.png')" class="gallery-overlay"></div>
         </div>
-        <div class="gallery-container"><img src='../images/gallery/rp2.png' alt="RP 1">
-            <div onclick="opengallery('../images/gallery/rp2.png')" class="gallery-overlay"></div>
+        <div class="gallery-container"><img src='../images/gallery/11.png' alt="image 11">
+            <div onclick="opengallery('../images/gallery/11.png')" class="gallery-overlay"></div>
         </div>
     </div>
     <div class="gallerypopup" id="popup">
@@ -183,6 +205,7 @@
         <h2>SkyPiea Roleplay</h2>
         <h3>Owner: marshall_rtx</h3>
         <h3>Samp devloper: d4rk_spy</h3>
+        <h3>Bot devloper: rosario_god</h3>
         <div class="tailright">
             For queries and suggestions <br> <br>
             Email : SkyPieasamp@gmail.com <br>
@@ -190,6 +213,16 @@
                 rel="noopener noreferrer"> query channel</a> <br><br><br>
         </div>
         <h3>website developed by: zyndor.</h3>
+        <script>
+            function deleteAllCookies() {
+                // Create an AJAX request
+                const xhr = new XMLHttpRequest();
+                xhr.open('POST', 'index1.php', true); // Updated to the correct file
+                xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+                xhr.send('action=deleteCookies'); // Send the request with action parameter
+            }
+        </script>
+        <button class="mainbutton2" onclick="deleteAllCookies()">log out</button>
     </div>
 </body>
 
